@@ -1,7 +1,7 @@
 {
-  "name": "demo_project",
+  "name": "First React App",
   "version": "1.0.0",
-  "description": "demo for react first app",
+  "description": "Sample for react first app on github",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
