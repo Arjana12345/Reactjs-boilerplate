@@ -19,6 +19,13 @@
 
     1) npm install babel-preset-es2015
 
+# React-Redux binding
+
+    1) npm install --save-dev redux-devtools
+    
+# Axios
+
+    1) npm i axios --save
 
 
 
