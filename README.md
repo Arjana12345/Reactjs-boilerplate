@@ -27,5 +27,10 @@
 
     1) npm i axios --save
 
+# Redux-thunk
+
+    1) npm install redux-thunk --save
+
+
 
 
