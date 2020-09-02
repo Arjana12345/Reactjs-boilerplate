@@ -31,6 +31,9 @@
 
     1) npm install redux-thunk --save
 
+# Redux devtool extension
 
+    1) npm install --save-dev redux-devtools-extension
 
+# 
 
