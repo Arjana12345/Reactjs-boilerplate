@@ -1,14 +1,43 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import handleClick from './actions/testAction';
+import Home from './components/home';
 
-class Routes extends Component{
+class Routes extends React.Component{
 
-    render(){
-        return(
-           <div>
-              <h1>First React App</h1>
-           </div>
-        );
-     }
+   constructor(props) {
+      super(props);
+      
+   }
+
+
+
+      render() {
+         return (
+         <div>
+            <Home onClick={()=>this.props.handleClick('hi')} />
+            <p>container</p>
+         </div>
+         );
+      }
+      
+
+  
 } 
 
-export default Routes;
+
+const mapStateToProps = state => ({
+  data: state
+});
+
+
+const mapDispatchToProps = (dispatch) => ({
+  
+   handleClick: (payload) => dispatch(handleClick(payload))
+   
+ })
+
+export default connect(
+   mapStateToProps , 
+   mapDispatchToProps
+   )(Routes);
