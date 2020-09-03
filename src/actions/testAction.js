@@ -5,6 +5,9 @@ export default function test(payload) {
      alert("action");
   return {
     type: "TEST",
-    payload: {"name": "arjana"}
+    payload: [{
+        "name": "Arjana",
+        "lastName" : "Haldkar"
+      }]
   }
 }
