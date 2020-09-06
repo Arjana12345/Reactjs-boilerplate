@@ -5,9 +5,6 @@ export default function test(payload) {
      alert("action");
   return {
     type: "TEST",
-    payload: [{
-        "name": "Arjana",
-        "lastName" : "Haldkar"
-      }]
+    payload: axios.get("http://localhost/reactApp/firstReactApp/backend/test.php")
   }
 }
