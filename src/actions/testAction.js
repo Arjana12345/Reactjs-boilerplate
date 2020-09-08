@@ -1,10 +1,21 @@
 import axios from 'axios';
+import config from '../config';
 
-
-export default function test(payload) {
-     alert("action");
-  return {
+export function test(payload) {
+    return {
     type: "TEST",
-    payload: axios.get("http://localhost/reactApp/firstReactApp/backend/test.php")
+    payload: axios.get(config.API.getInfo)
   }
+}
+
+export function testPost(payload) {
+    return axios.get(config.API.getUsers + 'posts/' + payload, {
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then((response) => {
+      return response;
+    });
+
+
 }

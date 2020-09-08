@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import handleClick from './actions/testAction';
+import { testPostTest, test} from './actions/testAction';
 import Home from './components/home';
 
 class Routes extends React.Component{
@@ -33,7 +33,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   
-   handleClick: (payload) => dispatch(handleClick(payload))
+   handleClick: (payload) => dispatch(test(payload))
    
  })
 

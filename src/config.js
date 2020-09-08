@@ -2,8 +2,8 @@
 export default {
     API : {
       
-        getInfo : 'https://localhost/test',
+        getInfo : 'http://localhost/reactApp/firstReactApp/backend/test.php',
      
-        getUsers : 'https://localhost/test'
+        getUsers : 'https://localhost/test.php'
     }
 }
