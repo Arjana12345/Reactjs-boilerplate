@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { testPostTest, test} from './actions/testAction';
+import { testPost, test} from './actions/indexAction';
 import Home from './components/home';
 
 class Routes extends React.Component{
@@ -13,6 +13,7 @@ class Routes extends React.Component{
 
 
       render() {
+        
          return (
          <div>
             <Home onClick={()=>this.props.handleClick('hi')} />
