@@ -1,25 +1,35 @@
-export default function userReducer(state = {
-    data : [{
-      "name": "",
-      "lastName" : ""
-    }]
+export default function userReducer(state = [], action) {
+  
+ switch (action.type) {
+      case 'TEST':
+        if(action.status === "SUCCESS")
+        {
+          
+          console.log("SUCCESS");
+          console.log(action.data);
+         
+          return [
+            ...state,
+            {
+             data: action.data
+            }
+          ]
+        
 
-}, action) {
-
-
-    switch (action.type) {
-      case 'TEST_pending':
-        console.log("pending");
-
-      case 'TEST_FULFILLED':
-        console.log("fulfilled");
-
-      case 'TEST_PENDING': 
-        console.log('PENDING');
-      
+        }else{
+          
+          console.log("FAILURE");
+          console.log(action.error);
+          
+          return state;
+        }
+       
+        break;
       default:
-        console.log('DEFAULT');
-        return state
+        
+        console.log("default");
+        return state;
+        break;
     }
   }
 

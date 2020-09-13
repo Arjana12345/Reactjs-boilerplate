@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { testPost, test} from './actions/indexAction';
+import { test} from './actions/userAction';
 import Home from './components/home';
 
 class Routes extends React.Component{
@@ -10,10 +10,9 @@ class Routes extends React.Component{
       
    }
 
-
-
-      render() {
-        
+   render() {
+     
+        console.log(this.props.testData);
          return (
          <div>
             <Home onClick={()=>this.props.handleClick('hi')} />
@@ -23,12 +22,11 @@ class Routes extends React.Component{
       }
       
 
-  
 } 
 
 
 const mapStateToProps = state => ({
-  data: state
+  testData: state
 });
 
 
