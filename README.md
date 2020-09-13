@@ -35,5 +35,7 @@
 
     1) npm install --save-dev redux-devtools-extension
 
-# 
+# Redux-logger
+
+    1) npm i --save redux-logger
 
