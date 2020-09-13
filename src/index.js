@@ -1,10 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import configureStore from './configureStore'
+
 import AppRoutes from './routes';
 
-const store = configureStore()
+
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import rootReducer from './reducers/indexReducer'
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk,logger)
+)
+
 
 render( 
     <Provider store={store}>

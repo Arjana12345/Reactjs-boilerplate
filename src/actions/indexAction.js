@@ -1,23 +1,20 @@
 import axios from 'axios';
-import config from '../config';
 
-export function test(x) {
-    return {
-    type: "TEST",
-    payload: axios.get(config.API.getInfo)
-  }
-}
 
-export function testPost(payload) {
-    return axios.get(config.API.getInfo , {
-      headers: {
-        'Accept': 'application/json'
+export function apiGetCall(type,url)
+{
+      return function (dispatch) { 
+        axios.get(url)
+          .then((response) => dispatch({
+            type: type,
+            status: "SUCCESS",
+            data: response.data
+          })).catch((response) => dispatch({
+            type: type,
+            status: "FAILURE",
+            error: response.error
+          }))
       }
-    }).then((response) => {
-      console.log(response);
-      console.log("arju");
-      return response;
-    });
-
 
 }
+
