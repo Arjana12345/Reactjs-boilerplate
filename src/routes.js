@@ -1,42 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { test} from './actions/userAction';
-import Home from './components/home';
-
-class Routes extends React.Component{
-
-   constructor(props) {
-      super(props);
-      
-   }
-
-   render() {
-     
-        console.log(this.props.testData);
-         return (
-         <div>
-            <Home onClick={()=>this.props.handleClick('hi')} />
-            <p>container</p>
-         </div>
-         );
-      }
-      
-
-} 
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import HomeContainer from './containers/homeContainer';
 
 
-const mapStateToProps = state => ({
-  testData: state
-});
-
-
-const mapDispatchToProps = (dispatch) => ({
+const Routes = () =>(
   
-   handleClick: (payload) => dispatch(test(payload))
-   
- })
+  <Router>
+    <Route path="/" component={HomeContainer} />
+  </Router>
 
-export default connect(
-   mapStateToProps , 
-   mapDispatchToProps
-   )(Routes);
+);
+export default Routes;
