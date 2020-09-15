@@ -1,6 +1,6 @@
-# firstReactApp
+# Reactjs-boilerpllate
  
-    React App structure to print "Hello World".
+    Reactjs App structure to print "Hello World".
 
 
 # Installing
