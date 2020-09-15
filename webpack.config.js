@@ -2,14 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-   entry: './main.js',
+   mode: 'development',
+   entry: ['./src/index.js'],
    output: {
       path: path.join(__dirname, '/bundle'),
       filename: 'index_bundle.js'
    },
    devServer: {
       inline: true,
-      port: 8000
+      port: 8000,
+      historyApiFallback: true
    },
    module: {
       rules: [
@@ -27,5 +29,11 @@ module.exports = {
       new HtmlWebpackPlugin({
          template: './index.html'
       })
-   ]
+    
+   ],
+   performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
+  }
 }

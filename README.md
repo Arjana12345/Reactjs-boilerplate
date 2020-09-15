@@ -19,6 +19,23 @@
 
     1) npm install babel-preset-es2015
 
+# React-Redux binding
 
+    1) npm install --save-dev redux-devtools
+    
+# Axios
 
+    1) npm i axios --save
+
+# Redux-thunk
+
+    1) npm install redux-thunk --save
+
+# Redux devtool extension
+
+    1) npm install --save-dev redux-devtools-extension
+
+# Redux-logger
+
+    1) npm i --save redux-logger
 
