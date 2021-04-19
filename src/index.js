@@ -11,23 +11,27 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import rootReducer from './reducers/indexReducer'
 
+
+import config from '../src/config';
+
+
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk,logger)
 )
 
 const client = new ApolloClient({
-  uri: 'http://localhost/reactApp/firstReactApp/backend/test.php',
+  uri: config.API.getApolloBooks,
   cache: new InMemoryCache()
 });
 
 client.query({ query: gql`
-  {
-    user(id: 1) {
-      id
-      name
-    }
+{
+  books {
+    title
+    author
   }
+}
 `}).then(result =>console.log(result));
 
 
