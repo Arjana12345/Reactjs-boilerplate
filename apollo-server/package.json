@@ -1,0 +1,14 @@
+{
+    "name": "FirstApolloServer",
+    "version": "1.0.0",
+    "description": "Sample for react apollo server on github",
+    "main": "./src/index.js",
+    "scripts": {},
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "apollo-server": "^2.23.0",
+        "graphql": "^15.5.0"
+    },
+    "devDependencies": {}
+}
