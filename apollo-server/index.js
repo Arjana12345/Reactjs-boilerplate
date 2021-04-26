@@ -1,51 +1,68 @@
+/*
+const express = require('express');
+const { ApolloServer, gql } = require('apollo-server-express');
 
+async function startApolloServer() {
+  // Construct a schema, using GraphQL schema language
+  const typeDefs = gql`
+    type Query {
+      hello: String
+    }
+  `;
 
-const { ApolloServer, gql } = require('apollo-server');
-
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
-const typeDefs = gql`
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-    {
-      title: 'The Awakening',
-      author: 'Kate Chopin',
-    },
-    {
-      title: 'City of Glass',
-      author: 'Paul Auster',
-    },
-  ];
-  
+  // Provide resolver functions for your schema fields
   const resolvers = {
     Query: {
-      books: () => books,
+      hello: () => 'Hello world!',
     },
   };
-  
-  // The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers });
 
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+  const server = new ApolloServer({ typeDefs, resolvers });
+  await server.start();
+
+  const app = express();
+  server.applyMiddleware({ app });
+
+  await new Promise(resolve => app.listen({ port: 4000 }, resolve));
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+  return { server, app };
+}
+
+*/
+
+const typeDefs = gql`
+type Query {
+  person: String
+}
+`;
 
 
+const resolvers = {
+  Query: {
+    person: () => 'It works'
+  },
+};
+
+
+
+const express = require('express');
+const { ApolloServer, gql } = require('apollo-server-express')
+const fs = require ('fs')
+
+const port = 4000;
+const path = '/graphql'
+
+const app = express()
+
+//const typeDefs = gql(fs.readFileSync('./schema.graphql', {encoding: 'utf8'}))
+
+//const resolvers = require('./resolvers')
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+})
+
+server.applyMiddleware({ app, path })
+
+app.listen(port, () => console.info(`Server started on port ${port}`));
